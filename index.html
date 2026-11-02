@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -9,10 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .site-header { position: sticky; top: 0; z-index: 20; background: var(--bg); backdrop-filter: blur(14px); }
-    .brand span { font-size: 16px; }
-  </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -42,21 +38,52 @@
 
     <section class="section-shell project-section" id="projects">
       <div class="section-heading project-heading reveal"><div><p class="eyebrow"><i></i> Selected work</p><h2>Things I've <em>shipped.</em></h2></div><span class="section-index">PROJECTS / SELECTED</span></div>
+      <article class="project-gallery reveal" aria-labelledby="web-project-title">
+        <div class="gallery-heading">
+          <div>
+            <p class="project-type">Selected web work</p>
+            <h3 id="web-project-title">Web applications</h3>
+            <p class="gallery-description">A closer look at a game storefront and a student organization platform.</p>
+          </div>
+          <div class="gallery-controls" aria-label="Gallery controls">
+            <button class="gallery-control" type="button" data-gallery-previous aria-label="Previous image">←</button>
+            <button class="gallery-control" type="button" data-gallery-toggle aria-label="Pause automatic slide">Pause</button>
+            <button class="gallery-control" type="button" data-gallery-next aria-label="Next image">→</button>
+          </div>
+        </div>
+        <div class="gallery-viewport" data-project-gallery role="region" aria-label="Web application screenshots" tabindex="0">
+          <figure class="gallery-slide"><img src="Screenshot (511).png" alt="Game storefront home page with a featured game and catalog filters" loading="lazy" decoding="async"><figcaption>Storefront · Discover</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (512).png" alt="Game store administration dashboard" loading="lazy" decoding="async"><figcaption>Store administration</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (513).png" alt="Game storefront sign-in page" loading="lazy" decoding="async"><figcaption>Game Management</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (514).png" alt="Game storefront user library" loading="lazy" decoding="async"><figcaption>Account Sign-in</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (515).png" alt="Game storefront genre browsing page" loading="lazy" decoding="async"><figcaption>Personal library</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (516).png" alt="Game detail page with purchase information" loading="lazy" decoding="async"><figcaption>Browse by genre</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (517).png" alt="Game storefront catalog page" loading="lazy" decoding="async"><figcaption>Game details</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (508).png" alt="Student council management dashboard with member and activity summaries" loading="lazy" decoding="async"><figcaption>Organization dashboard</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (509).png" alt="Student council news and information page" loading="lazy" decoding="async"><figcaption>News and information</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot (510).png" alt="Student council news management form" loading="lazy" decoding="async"><figcaption>Content management</figcaption></figure>
+          <figure class="gallery-slide"><img src="Screenshot 2026-10-31 205327.png" alt="Student council program editor form" loading="lazy" decoding="async"><figcaption>Admin Panel</figcaption></figure>
+        </div>
+        <p class="gallery-status" data-gallery-status aria-live="polite">Image 1 of 11</p>
+      </article>
+
       <div class="project-grid">
-        <article class="project-card project-feature reveal"><div class="project-visual visual-health"><img src="aws.png" alt="Cloud-based health website project" style="width:100%;height:100%;object-fit:cover;display:block;"><span class="visual-chip">AWS / GO / MYSQL</span></div><div class="project-info"><div><p class="project-type">Cloud application · 2025</p><h3>Cloud-based health website</h3><p>End-to-end healthcare commerce system with product storage, transactions, JWT auth, and a deployment-ready AWS architecture.</p></div><a class="round-arrow" href="mailto:vorlan.work@gmail.com?subject=Cloud-based health website">↗</a></div></article>
-        <article class="project-card reveal"><div class="project-visual visual-load"><img src="loadbalancer.png" alt="Adaptive load balancer project" style="width:100%;height:100%;object-fit:cover;display:block;"><span class="visual-chip">THESIS / ARIMA</span></div><div class="project-info"><div><p class="project-type">Systems research · 2026</p><h3>Adaptive load balancer</h3><p>Dynamic traffic distribution using actual and predicted CPU utilization with ARIMA forecasting.</p></div><a class="round-arrow" href="mailto:vorlan.work@gmail.com?subject=Adaptive load balancer">↗</a></div></article>
-        <article class="project-card reveal"><div class="project-visual visual-ml"><div class="ml-orbit"><span>YOLO</span><i></i><i></i><i></i></div><span class="visual-chip">PYTHON / CV</span></div><div class="project-info"><div><p class="project-type">Machine learning · 2024—25</p><h3>Vision & prediction lab</h3><p>Flood prediction, rice leaf disease classification, and vehicle speed detection experiments.</p></div><a class="round-arrow" href="mailto:vorlan.work@gmail.com?subject=Vision and prediction lab">↗</a></div></article>
-        <article class="project-card reveal"><div class="project-visual visual-iot"><div class="iot-lock"><span>LOCKED</span><strong>MQTT</strong></div><span class="visual-chip">IOT / EMBEDDED</span></div><div class="project-info"><div><p class="project-type">Connected devices · 2023—25</p><h3>IoT field experiments</h3><p>Smart door locks, flood detection, automatic fans, and an MQTT-controlled RC tank system.</p></div><a class="round-arrow" href="mailto:vorlan.work@gmail.com?subject=IoT field experiments">↗</a></div></article>
+        <article class="project-card project-feature reveal"><div class="project-visual visual-health"><img src="aws.png" alt="Cloud-based health website project" loading="lazy" decoding="async"><span class="visual-chip">AWS / GO / MYSQL</span></div><div class="project-info"><div><p class="project-type">Cloud application · 2025</p><h3>Cloud-based health website</h3><p>End-to-end healthcare commerce system with product storage, transactions, JWT auth, and a deployment-ready AWS architecture.</p></div><a class="round-arrow" href="mailto:vorlan154@gmail.com?subject=Cloud-based health website">↗</a></div></article>
+        <article class="project-card reveal"><div class="project-visual visual-load"><img src="loadbalancer.png" alt="Adaptive load balancer project" loading="lazy" decoding="async"><span class="visual-chip">THESIS / ARIMA</span></div><div class="project-info"><div><p class="project-type">Systems research · 2026</p><h3>Adaptive load balancer</h3><p>Dynamic traffic distribution using actual and predicted CPU utilization with ARIMA forecasting.</p></div><a class="round-arrow" href="mailto:vorlan154@gmail.com?subject=Adaptive load balancer">↗</a></div></article>
+<article class="project-card reveal"><div class="project-visual visual-ml"><img src="ML.jpg" alt="Vision and machine learning project preview" loading="lazy" decoding="async"><span class="visual-chip">PYTHON / CV</span></div><div class="project-info"><div><p class="project-type">Machine learning · 2024—25</p><h3>Vision & prediction lab</h3><p>Flood prediction, rice leaf disease classification, and vehicle speed detection experiments.</p></div><a class="round-arrow" href="mailto:vorlan154@gmail.com?subject=Vision and prediction lab">↗</a></div></article>
+<article class="project-card reveal"><div class="project-visual visual-iot"><img src="iot.jpg" alt="IoT project preview" loading="lazy" decoding="async"><span class="visual-chip">IOT / EMBEDDED</span></div><div class="project-info"><div><p class="project-type">Connected devices · 2023—25</p><h3>IoT field experiments</h3><p>Smart door locks, flood detection, automatic fans, and an MQTT-controlled RC tank system.</p></div><a class="round-arrow" href="mailto:vorlan154@gmail.com?subject=IoT field experiments">↗</a></div></article>
       </div>
+
     </section>
 
     <section class="section-shell experience-section" id="experience"><div class="section-heading reveal"><p class="eyebrow"><i></i> The path so far</p><h2>Learning by <em>doing.</em></h2></div><div class="experience-list"><div class="experience-item reveal"><span class="experience-year">2025—26</span><div><h3>Informatics Laboratory Assistant</h3><p>Laboratory of Informatics · Institut Teknologi Nasional</p><ul><li>Guided practical sessions across networking, OOP, image processing, IoT, robotics, and multimedia.</li><li>Configured and troubleshot software and network infrastructure for reliable lab sessions.</li></ul></div><span class="experience-tag">WORK</span></div><div class="experience-item reveal"><span class="experience-year">2024—25</span><div><h3>Secretary, Itenas Club Reads</h3><p>Campus organization · Bandung</p><ul><li>Managed meeting records, document archives, activity reports, and reading programs.</li></ul></div><span class="experience-tag">ORG</span></div><div class="experience-item reveal"><span class="experience-year">2023—25</span><div><h3>Event Logistics Staff</h3><p>INKU · Institut Teknologi Nasional</p><ul><li>Coordinated equipment flow and logistical requirements across campus events.</li></ul></div><span class="experience-tag">ORG</span></div></div></section>
 
     <section class="skills-section"><div class="section-shell skills-inner"><div class="skills-copy reveal"><p class="eyebrow"><i></i> The toolkit</p><h2>Curious across<br /><em>the stack.</em></h2><p>Comfortable moving from a system diagram to the code, infrastructure, and documentation that make it real.</p></div><div class="skill-cloud reveal"><span>Python</span><span>AWS</span><span>Go</span><span>Laravel</span><span>Spring Boot</span><span>Node.js</span><span>Flask</span><span>MySQL</span><span>JavaScript</span><span>REST API</span><span>ARIMA</span><span>YOLO</span><span>MQTT</span><span>Git / GitHub</span><span>System Design</span></div></div></section>
 
-    <section class="contact-section section-shell" id="contact"><div class="contact-card reveal"><p class="eyebrow"><i></i> Have a problem worth solving?</p><h2>Let's make the<br /><em>next thing.</em></h2><a class="contact-email" href="mailto:vorlan.work@gmail.com">vorlan.work@gmail.com <span>↗</span></a><div class="contact-footer"><span>Open to software, cloud, and data opportunities</span><span>Bandung, Indonesia · GMT+7</span></div></div></section>
+    <section class="contact-section section-shell" id="contact"><div class="contact-card reveal"><p class="eyebrow"><i></i> Have a problem worth solving?</p><h2>Let's make the<br /><em>next thing.</em></h2><a class="contact-email" href="mailto:vorlan154@gmail.com">vorlan154@gmail.com <span>↗</span></a><a class="contact-whatsapp" href="https://wa.me/6282115953727?text=Halo%20Vorlan%2C%20saya%20menghubungi%20dari%20website%20portfolio." target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.8 9.8 0 1 1 8.6 4.8Zm5.4-7.4c-.3-.2-1.6-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.3s1 2.7 1.1 2.9c.2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.5Z"/></svg><span>Chat via WhatsApp</span><span aria-hidden="true">↗</span></a><div class="contact-footer"><span>Open to software, cloud, and data opportunities</span><span>Bandung, Indonesia · GMT+7</span></div></div></section>
   </main>
   <footer class="site-footer"><span>© 2026 Vorlan Nasywan Fatahillah</span><span>Built with intent<span class="footer-mark"> / </span> VNF</span></footer>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="script.js"></script>
 </body>
 </html>
+

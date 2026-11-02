@@ -33,3 +33,77 @@ if (window.gsap && window.ScrollTrigger && !window.matchMedia('(prefers-reduced-
 } else {
   document.querySelectorAll('.reveal').forEach((element) => { element.style.opacity = '1'; element.style.transform = 'none'; });
 }
+
+const gallery = document.querySelector('[data-project-gallery]');
+
+if (gallery) {
+  const gallerySection = gallery.closest('.project-gallery');
+  const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+  const previousButton = document.querySelector('[data-gallery-previous]');
+  const nextButton = document.querySelector('[data-gallery-next]');
+  const toggleButton = document.querySelector('[data-gallery-toggle]');
+  const status = document.querySelector('[data-gallery-status]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let currentIndex = 0;
+  let timer;
+  let userPaused = reducedMotion.matches;
+  let reducedMotionOptIn = false;
+
+  const updateStatus = () => {
+    const viewportLeft = gallery.getBoundingClientRect().left;
+    const nearestSlide = slides.reduce((nearest, slide, index) => {
+      const distance = Math.abs(slide.getBoundingClientRect().left - viewportLeft);
+      return distance < nearest.distance ? { index, distance } : nearest;
+    }, { index: 0, distance: Infinity });
+
+    currentIndex = nearestSlide.index;
+    status.textContent = `Image ${currentIndex + 1} of ${slides.length}`;
+  };
+
+  const goToSlide = (index) => {
+    currentIndex = (index + slides.length) % slides.length;
+    const slide = slides[currentIndex];
+    const left = slide.getBoundingClientRect().left - gallery.getBoundingClientRect().left + gallery.scrollLeft;
+    gallery.scrollTo({ left, behavior: reducedMotion.matches && !reducedMotionOptIn ? 'auto' : 'smooth' });
+    status.textContent = `Image ${currentIndex + 1} of ${slides.length}`;
+  };
+
+  const stopAutoplay = () => window.clearInterval(timer);
+  const startAutoplay = (userStarted = false) => {
+    stopAutoplay();
+    if ((reducedMotion.matches && !reducedMotionOptIn) || userPaused || document.hidden || (!userStarted && gallerySection.contains(document.activeElement))) return;
+    timer = window.setInterval(() => goToSlide(currentIndex + 1), 4500);
+  };
+
+  previousButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+  nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+  toggleButton.addEventListener('click', () => {
+    userPaused = !userPaused;
+    if (!userPaused && reducedMotion.matches) reducedMotionOptIn = true;
+    toggleButton.textContent = userPaused ? 'Play' : 'Pause';
+    toggleButton.setAttribute('aria-label', userPaused ? 'Play automatic slide' : 'Pause automatic slide');
+    startAutoplay(!userPaused);
+  });
+
+  gallery.addEventListener('scroll', () => window.requestAnimationFrame(updateStatus), { passive: true });
+  gallerySection.addEventListener('focusin', stopAutoplay);
+  gallerySection.addEventListener('focusout', (event) => {
+    if (!gallerySection.contains(event.relatedTarget)) startAutoplay();
+  });
+  document.addEventListener('visibilitychange', () => startAutoplay());
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches && !reducedMotionOptIn) {
+      userPaused = true;
+      toggleButton.textContent = 'Play';
+      toggleButton.setAttribute('aria-label', 'Play automatic slide');
+    }
+    startAutoplay();
+  });
+
+  if (reducedMotion.matches) {
+    toggleButton.textContent = 'Play';
+    toggleButton.setAttribute('aria-label', 'Play automatic slide');
+  }
+
+  startAutoplay();
+}
